@@ -1,25 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
-import Square from './Square';
+import Board from './Board';
 
 function App() {
   return (
     <React.Fragment>
-      <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
-      </div>
+      <Board />
     </React.Fragment>
   );
 }
