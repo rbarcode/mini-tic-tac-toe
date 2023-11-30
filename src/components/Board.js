@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import './Board.css';
 import Square from './Square'
+import * as a from './../actions';
 
 function Board() {
   const [xIsNext, setXIsNext] = useState(true);
@@ -11,11 +12,15 @@ function Board() {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
+    const { dispatch } = this.props;
+    
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = "X";
+      const action = a.setX(i);
+      dispatch(action);
     } else {
-      nextSquares[i] = "O";
+      const action = a.setO(i);
+      dispatch(action);
     }
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
